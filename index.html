@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth " lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/output.css">
     <title>Mencoba Tailwind</title>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+    </script>
 </head>
 
-<body class="bg-black">
+<body class="bg-black dark:bg-slate-400">
     <!-- <h1 class="text-center font-bold text-4xl mt-9 text-blue-600">Holla</h1> -->
 
     <!-- header start -->
-    <header class="absolute bg-white top-0 left-0 w-full z-10 flex items-center">
-        <div class="w-full ml-auto mr-auto px-[16px] py-[19px]">
+    <header class="absolute bg-slate-400 top-0 left-0 w-full z-10 flex items-center">
+        <div class="w-full ml-auto mr-auto px-[16px] py-[16px]">
             <div class="relative flex justify-between items-center">
-                <h1 class="text-xl font-bold">Coffee-<span class="text-x">Ku</span></h1>
+                <h1 class="text-xl font-bold"><a href="#home">Coffee-<span class="text-x">Ku</span></a></h1>
                 <div class="flex items-center">
                     <button id="humberger" name="humberger" type="button" class="absolute block right-4 lg:hidden">
                         <span class="humberger-line origin-top-left transition duration-500 ease-in-out"></span>
@@ -23,7 +30,7 @@
                         <span class="humberger-line origin-bottom-left transition duration-500 ease-in-out"></span>
                     </button>
                     <nav id="nav-menu"
-                        class="absolute py-6 right-4 max-w-[250px] w-full bg-white top-full rounded-lg shadow-lg hidden lg:block lg:static lg:max-w-full lg:bg-transparent lg:shadow-none">
+                        class="absolute py-3 right-4 max-w-[250px] w-full bg-white top-full rounded-lg shadow-lg hidden lg:block lg:static lg:max-w-full lg:bg-transparent lg:shadow-none">
                         <ul class="block lg:flex">
                             <li class="group">
                                 <a href="#home" class="text-base py-2 mx-8 flex group-hover:text-z">Home</a>
@@ -37,6 +44,20 @@
                             <li class="group">
                                 <a href="#tes" class="text-base py-2 mx-8 flex group-hover:text-z">Testimonials</a>
                             </li>
+                            <li class="group">
+                                <div class="flex items-center pl-8 mt-2">
+                                    <span class="mr-2 text-sm text-black">Dark</span>
+                                    <input type="checkbox" id="dark-toggle" class="hidden">
+                                    <label for="dark-toggle">
+                                        <div class="flex h-5 w-9 rounded-full bg-slate-600 items-center p-1 cursor-pointer">
+                                            <div class="toggle-circle h-4 w-4 bg-slate-400 rounded-full">
+
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-black">Light</span>
+                                </div>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -46,7 +67,7 @@
     <!-- header end -->
 
     <!-- section home start -->
-    <section id="home">
+    <section id="home" class="dark:bg-slate-400">
         <div class="w-full relative h-screen">
             <video class="w-full h-full absolute object-cover" class="background" width="1920" autoplay muted loop
                 id="street">
@@ -57,7 +78,8 @@
                 <div class="absolute w-full h-full justify-center text-center top-0 left-0 flex flex-col">
                     <h1 class="text-white text-6xl font-bold mb-3 md:text-2xl">Coffee-Ku</h1>
                     <p class="text-white text-lg mb-3">Ngopi Harus <span class="text-z">Nyantai</span> , Nyantai Harus
-                        <span class="text-z">Ngopi</span></p>
+                        <span class="text-z">Ngopi</span>
+                    </p>
                     <div class="flex flex-row justify-center">
                         <button
                             class="text-black font-semibold text-base border  bg-white py-3 px-3 rounded-xl hover:bg-transparent hover:text-white transition duration-500 ease-in-out mr-3">
@@ -75,7 +97,7 @@
     <hr style="color: white;">
 
     <!-- section picture start -->
-    <section class="bg-black">
+    <section class="bg-black dark:bg-slate-400">
         <section id="picture">
             <div class="max-w-[1240px] mx-auto py-16 px-4 text-center">
                 <h1 class="font-bold text-lg mb-3 text-white">ALL OUR PRODUCTS ARE 100% <span
@@ -98,7 +120,7 @@
     <hr style="color: white;">
 
     <!-- sosmed start -->
-    <section id="sosmed" class="about bg-stone-950 ">
+    <section id="sosmed" class="about bg-stone-950 dark:bg-slate-400">
         <div class="max-w-[1240px] mx-auto py-16 px-4">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-6 py-3 lg:w-1/2">
@@ -181,9 +203,9 @@
                             </div>
                         </div>
                         <div class="p-6">
-                            <h5 class="mb-2 text-lg font-bold">Ariella</h5>
+                            <h5 class="mb-2 text-lg font-bold">Jonny Wik</h5>
                             <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                                Web Developer
+                                IOS Developer
                             </h6>
 
                             <p>
@@ -211,7 +233,7 @@
                         <div class="p-6">
                             <h5 class="mb-2 text-lg font-bold">Roy Kimochi</h5>
                             <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                                Marketing Specialist
+                                Content Creator
                             </h6>
 
                             <p>
@@ -239,7 +261,7 @@
                         <div class="p-6">
                             <h5 class="mb-2 text-lg font-bold">AsamLambunk</h5>
                             <h6 class="mb-4 font-medium text-primary dark:text-primary-400">
-                                Public Relations
+                                Model 
                             </h6>
 
                             <p>
@@ -259,7 +281,7 @@
     <hr style="color: white;">
 
     <!-- footer s -->
-    <footer class="flex flex-col items-center bg-neutral-900 text-center text-white">
+    <footer class="flex flex-col items-center bg-neutral-900 text-center text-white dark:bg-slate-400">
         <div class="container px-6 pt-6">
             <div class="mb-6 flex justify-center">
                 <a href="https://www.youtube.com/channel/UC5SeDZNIDt6Pd2DMVpPF-KA" type="button"
@@ -332,6 +354,22 @@
         </div>
     </footer>
     <!-- footer e -->
+
+
+    <!-- back top s -->
+    <a href="#home" class="fixed bottom-4 right-4 z-[9999] h-10 w-10 bg-black rounded-full hidden animate-bounce"
+        id="to-top">
+        <span class="flex justify-center items-center mt-2 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="fill-current" viewBox="0 0 24 24"
+                style="fill: rgb(255, 255, 255);transform: msFilter;">
+                <path
+                    d="M12.001 1.993C6.486 1.994 2 6.48 2 11.994c.001 5.514 4.487 10 10 10 5.515 0 10.001-4.486 10.001-10s-4.486-10-10-10.001zM12 19.994c-4.41 0-7.999-3.589-8-8 0-4.411 3.589-8 8.001-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8.001 8z">
+                </path>
+                <path d="m12.001 8.001-4.005 4.005h3.005V16h2v-3.994h3.004z"></path>
+            </svg>
+        </span>
+    </a>
+    <!-- back top e -->
 
 
     <script src="src/js/script.js"></script>
